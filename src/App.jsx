@@ -185,7 +185,6 @@ SUBJECT: [subject line here]
       `}</style>
 
       <div style={{ background: "#1a3a2a", padding: "32px 24px 28px", textAlign: "center", position: "sticky", top: 0, zIndex: 10 }}>
-        <div style={{ fontSize: 10, letterSpacing: "0.2em", color: "#6ab87a", textTransform: "uppercase", marginBottom: 10 }}>✦ AI-Powered</div>
         <h1 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(24px,5vw,38px)", fontWeight: 900, color: "#f7f4ef", margin: 0, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
           Write Emails That <em style={{ color: "#a8d878" }}>Command Respect</em>
         </h1>
