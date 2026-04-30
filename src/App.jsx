@@ -223,7 +223,7 @@ SUBJECT: [subject line here]
             <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, color: "#8a8278", lineHeight: 1.8, marginBottom: 32, maxWidth: 360, margin: "0 auto 32px" }}>
               Upgrade to Pro for unlimited emails,<br />all 8 types, and subject lines included.
             </p>
-            <a href="https://selar.com/YOUR_PROMAIL_LINK" target="_blank" rel="noreferrer" style={{ display: "inline-block", background: "#1a3a2a", color: "#f7f4ef", fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", padding: "18px 40px", borderRadius: 8, textDecoration: "none" }}>
+            <a href="https://selar.com/https://selar.com/24c483pj71" target="_blank" rel="noreferrer" style={{ display: "inline-block", background: "#1a3a2a", color: "#f7f4ef", fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", padding: "18px 40px", borderRadius: 8, textDecoration: "none" }}>
               Upgrade to Pro — ₦14,000
             </a>
             <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#b8b0a4", marginTop: 16 }}>
@@ -237,7 +237,7 @@ SUBJECT: [subject line here]
             <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#2a5a3a" }}>
               {5 - emailCount} free email{5 - emailCount !== 1 ? "s" : ""} remaining
             </span>
-            <a href="https://selar.com/YOUR_PROMAIL_LINK" target="_blank" rel="noreferrer" style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#1a3a2a", fontWeight: 500, textDecoration: "underline" }}>
+            <a href="https://selar.com/https://selar.com/24c483pj71" target="_blank" rel="noreferrer" style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#1a3a2a", fontWeight: 500, textDecoration: "underline" }}>
               Upgrade for unlimited →
             </a>
           </div>
