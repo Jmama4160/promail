@@ -32,6 +32,8 @@ export default function App() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [copiedSubject, setCopiedSubject] = useState(false);
+  const [emailCount, setEmailCount] = useState(() => parseInt(localStorage.getItem('promail_count') || '0'));
+  const [showPaywall, setShowPaywall] = useState(false);
   const outputRef = useRef(null);
 
   useEffect(() => {
@@ -42,6 +44,7 @@ export default function App() {
 
   const generate = async () => {
     if (!context.trim() || !emailType) return;
+    if (emailCount >= 5) { setShowPaywall(true); return; }
     setLoading(true);
     setStreaming(true);
     setBody("");
@@ -146,6 +149,9 @@ SUBJECT: [subject line here]
     } finally {
       setLoading(false);
       setStreaming(false);
+      const newCount = emailCount + 1;
+      setEmailCount(newCount);
+      localStorage.setItem('promail_count', newCount);
     }
   };
 
@@ -185,6 +191,7 @@ SUBJECT: [subject line here]
       `}</style>
 
       <div style={{ background: "#1a3a2a", padding: "32px 24px 28px", textAlign: "center", position: "sticky", top: 0, zIndex: 10 }}>
+        <div style={{ fontSize: 10, letterSpacing: "0.2em", color: "#6ab87a", textTransform: "uppercase", marginBottom: 10 }}>✦ AI-Powered</div>
         <h1 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(24px,5vw,38px)", fontWeight: 900, color: "#f7f4ef", margin: 0, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
           Write Emails That <em style={{ color: "#a8d878" }}>Command Respect</em>
         </h1>
@@ -207,6 +214,35 @@ SUBJECT: [subject line here]
             </div>
           ))}
         </div>
+
+        {showPaywall && (
+          <div style={{ animation: "fadeUp 0.4s ease", textAlign: "center", padding: "48px 20px" }}>
+            <div style={{ fontSize: 48, marginBottom: 20 }}>✉️</div>
+            <div style={{ fontFamily: "'Fraunces', serif", fontSize: 26, fontWeight: 900, color: "#1a3a2a", marginBottom: 12, lineHeight: 1.2 }}>
+              You've used your 5 free emails
+            </div>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, color: "#8a8278", lineHeight: 1.8, marginBottom: 32, maxWidth: 360, margin: "0 auto 32px" }}>
+              Upgrade to Pro for unlimited emails,<br />all 8 types, and subject lines included.
+            </p>
+            <a href="https://selar.com/https://selar.com/24c483pj71" target="_blank" rel="noreferrer" style={{ display: "inline-block", background: "#1a3a2a", color: "#f7f4ef", fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", padding: "18px 40px", borderRadius: 8, textDecoration: "none" }}>
+              Upgrade to Pro — ₦14,000
+            </a>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#b8b0a4", marginTop: 16 }}>
+              One-time or monthly · Cancel anytime
+            </div>
+          </div>
+        )}
+
+        {!showPaywall && emailCount > 0 && emailCount < 5 && (
+          <div style={{ background: "#f0f9e8", border: "1.5px solid #c8e8a0", borderRadius: 10, padding: "12px 16px", marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#2a5a3a" }}>
+              {5 - emailCount} free email{5 - emailCount !== 1 ? "s" : ""} remaining
+            </span>
+            <a href="https://selar.com/https://selar.com/24c483pj71" target="_blank" rel="noreferrer" style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#1a3a2a", fontWeight: 500, textDecoration: "underline" }}>
+              Upgrade for unlimited →
+            </a>
+          </div>
+        )}
 
         {step === 0 && (
           <div style={{ animation: "fadeUp 0.4s ease" }}>
