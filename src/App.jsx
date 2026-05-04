@@ -348,7 +348,10 @@ export default function App() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [copiedSubject, setCopiedSubject] = useState(false);
-  const [emailCount, setEmailCount] = useState(() => parseInt(localStorage.getItem("promail_count") || "0"));
+  const [emailCount, setEmailCount] = useState(() => {
+  const match = document.cookie.match(/promail_count=(\d+)/);
+  return match ? parseInt(match[1]) : 0;
+});
   const [showPaywall, setShowPaywall] = useState(false);
   const outputRef = useRef(null);
 
@@ -424,7 +427,9 @@ SUBJECT: [subject line]
     } catch (e) { setError(`Error: ${e.message}`); setStep(1); }
     finally {
       setLoading(false); setStreaming(false);
-      const n = emailCount + 1; setEmailCount(n); localStorage.setItem("promail_count", n);
+      const n = emailCount + 1; setEmailCount(n);
+const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+document.cookie = `promail_count=${n};expires=${expires};path=/`;
     }
   };
 
