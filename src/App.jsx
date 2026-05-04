@@ -100,7 +100,7 @@ function LandingPage({ onStart }) {
         .ltest{background:#fff;border-radius:14px;padding:32px 28px;border:1.5px solid rgba(26,58,42,0.08);transition:all 0.3s;}
         .ltest:hover{box-shadow:0 16px 48px rgba(26,58,42,0.1);transform:translateY(-4px);border-color:#1a3a2a;}
         .ltest-q{font-family:'Fraunces',serif;font-size:16px;line-height:1.75;font-style:italic;margin-bottom:24px;color:#1a1a1a;}
-        .ltest-q::before{content:'\201C';color:#1a3a2a;font-size:40px;line-height:0;vertical-align:-14px;margin-right:4px;}
+        .ltest-q::before{content:'"';color:#1a3a2a;font-size:40px;line-height:0;vertical-align:-14px;margin-right:4px;}
         .ltest-author{display:flex;align-items:center;gap:12px;}
         .ltest-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
         .ltest-name{font-size:12px;font-weight:500;color:#1a1a1a;}
